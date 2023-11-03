@@ -24,6 +24,7 @@ button:hover {
 .filters div {
     display: inline-grid;
 }
+
 .filters h2 {
     margin-left: 15%;
     margin-top: 0;
@@ -40,6 +41,12 @@ button:hover {
     margin-top: 0;
     font-weight: 400;
     font-size: 14px;
+    min-height: 16px;
+    width: 100%;
+
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .locations {
     height: 100%;
@@ -89,6 +96,10 @@ button:hover {
 .popover ul li{
     padding: 4px;
     padding-left: 10px;
+}
+
+.popover ul li input[type=checkbox]{
+	margin-right: 10px;
 }
 
 .popover ul h2{
