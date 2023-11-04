@@ -99,3 +99,39 @@
 .user {
   margin-bottom: 1.5%;
 }
+
+.reviews {
+  margin-top: 40px;
+}
+
+.review-title {
+  border-bottom: #DDDDDD solid 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-btn {
+  color: blue;
+}
+
+.toggle-btn:hover {
+  cursor: pointer;
+}
+
+.review-title h2 {
+  font-size: 16px;
+}
+
+.reviews ul {
+  list-style-type: none;
+}
+
+.reviews ul li h3 {
+  font-size: 14px;
+}
+
+.reviews ul li p {
+  font-size: 12px;
+}
