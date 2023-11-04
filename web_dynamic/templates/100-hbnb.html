@@ -2,17 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css">
-    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css">
-    <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css">
-    <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css">
-    <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css">
-    <link rel="icon" href="../static/images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="../static/styles/4-common.css?{{cache_id}}">
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-header.css?{{cache_id}}">
+    <link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?{{cache_id}}">
+    <link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?{{cache_id}}">
+    <link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?{{cache_id}}">
+    <link rel="icon" href="../static/images/icon.png?{{cache_id}}" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="../static/scripts/100-hbnb.js"></script>
     <title>HBnB</title>
   </head>
   <body>
     <header>
       <div class="logo"></div>
+      <div id="api_status"></div>
     </header>
     <div class="container">
       <section class="filters">
@@ -23,10 +26,16 @@
 	    <ul>
 	      {% for state in states %}
 	      <li>
-		<h2>{{ state[0].name }}:</h2>
+		<h2>
+			<input type="checkbox" class='state' id="{{ state[0].id }}" data-id="{{ state[0].id }}" data-name="{{ state[0].name }}">
+			<label for="{{state[0].id}}">{{ state[0].name }}:</label>
+		</h2>
 		<ul>
 		  {% for city in state[1] %}
-		  <li>{{ city.name }}</li>
+		  <li>
+			  <input type="checkbox" class="city" id="{{ city.id }}" data-id="{{ city.id }}" data-name="{{ city.name }}"/>
+			  <label for="{{ city.id }}"> {{ city.name }} <label/>
+		  </li>
 		  {% endfor %}
 		</ul>
 	      </li>
@@ -40,7 +49,7 @@
 	  <div class="popover">
 	    <ul>
 	      {% for amenity in amenities %}
-	      <li>{{ amenity.name }}</li>
+	      <li> <input id={{amenity.id}} class='amenity' type="checkbox" data-id="{{amenity.id}}" data-name="{{amenity.name}}"> <label for={{amenity.id}}>{{amenity.name}}</label> </li>
 	      {% endfor %}
 	    </ul>
 	  </div>
@@ -49,26 +58,6 @@
       </section>
       <div class="placesh1"><h1>Places</h1></div>
       <section class="places">
-	<!-- <h1>Places</h1> -->
-	{% for place in places %}
-	<article>
-	  <div class="title_box">
-	    <h2>{{ place.name }}</h2>
-	    <div class="price_by_night">${{ place.price_by_night }}</div>
-	  </div>
-	  <div class="information">
-	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
-            <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
-            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
-	  </div>
-	  <div class="user">
-            <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
-          </div>
-          <div class="description">
-	    {{ place.description | safe }}
-          </div>
-	</article>
-	{% endfor %}
       </section>
     </div>
     <footer>
