@@ -14,7 +14,7 @@ $(window).on('load', () => {
 
   function updatePlaces () {
     const places = getPlaces();
-    console.log(places.length);
+    // console.log(places.length);
     if (places) { populatePlaces(places); }
   }
 
@@ -127,8 +127,8 @@ $(window).on('load', () => {
   function getPlaces () {
     let searchedPlaces = null;
 
-    console.log(checkedStates);
-    console.log(checkedCities);
+    // console.log(checkedStates);
+    // console.log(checkedCities);
 
     $.ajax({
       type: 'POST',
